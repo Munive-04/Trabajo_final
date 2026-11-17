@@ -98,7 +98,7 @@ Los resultados esperados se calcularon en SQLite. El equipo ejecutó todos los s
 
 ## Modelo
 
-12 tablas normalizadas hasta Boyce-Codd, con `COMMENT` nativo en todas las tablas y columnas. Volumen: `asignacion` e `inspeccion_detalle` con 10.000 filas cada una (datos **sintéticos, solo uso académico**): `empresa_operadora`, `vehiculo`, `zona`, `paradero`, `ruta`, `ruta_paradero` (tabla puente N:M), `asignacion`, `responsable`, `inspeccion`, `inspeccion_detalle`, `reporte_ilegal` y `auditoria`. Ver `docs/diccionario_datos.md`.
+12 tablas normalizadas hasta Boyce-Codd, con COMMENT nativo en todas las tablas y columnas: empresa_operadora, vehiculo, zona, paradero, ruta, ruta_paradero (tabla puente N:M), asignacion, responsable, inspeccion, inspeccion_detalle, reporte_ilegal y auditoria. Volumen: asignacion e inspeccion_detalle con 10.000 filas cada una (datos sintéticos, solo uso académico). Ver docs/diccionario_datos.md.
 
 ## Decisiones de diseño
 
