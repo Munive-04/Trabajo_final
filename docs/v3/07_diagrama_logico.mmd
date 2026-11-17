@@ -1,0 +1,94 @@
+%% E7 · Diagrama lógico (relacional) con PK, FK y UK. Pegar en mermaid.live para exportar.
+%% Notación pata de cuervo; no es Chen. Complementar con la captura del Diseñador de phpMyAdmin.
+erDiagram
+    EMPRESA_OPERADORA ||--o{ VEHICULO : posee
+    EMPRESA_OPERADORA ||--o{ INSPECCION : es_inspeccionada
+    RESPONSABLE ||--o{ INSPECCION : realiza
+    INSPECCION ||--|{ INSPECCION_DETALLE : contiene
+    VEHICULO ||--o{ ASIGNACION : es_asignado
+    RUTA ||--o{ ASIGNACION : recibe
+    RUTA ||--|{ RUTA_PARADERO : incluye
+    PARADERO ||--o{ RUTA_PARADERO : forma_parte
+    ZONA ||--o{ PARADERO : contiene
+    ZONA ||--o{ REPORTE_ILEGAL : registra
+
+    EMPRESA_OPERADORA {
+        int id_empresa PK
+        string nit UK
+        string nombre
+        string estado
+    }
+    VEHICULO {
+        int id_vehiculo PK
+        int id_empresa FK
+        string placa UK
+        int capacidad
+        boolean tiene_rampa
+        boolean piso_bajo
+        boolean espacio_silla_ruedas
+        string estado
+    }
+    ZONA {
+        int id_zona PK
+        string nombre UK
+    }
+    PARADERO {
+        int id_paradero PK
+        int id_zona FK
+        string nombre
+        string tipo
+        boolean habilitado
+    }
+    RUTA {
+        int id_ruta PK
+        string codigo UK
+        string nombre
+        string estado
+    }
+    RUTA_PARADERO {
+        int id_ruta PK
+        int id_paradero PK
+        int orden
+    }
+    ASIGNACION {
+        int id_asignacion PK
+        int id_vehiculo FK
+        int id_ruta FK
+        date fecha
+        string turno
+        time hora_inicio
+        time hora_fin
+    }
+    RESPONSABLE {
+        int id_responsable PK
+        string nombre
+        string entidad
+    }
+    INSPECCION {
+        int id_inspeccion PK
+        int id_empresa FK
+        int id_responsable FK
+        date fecha
+    }
+    INSPECCION_DETALLE {
+        int id_detalle PK
+        int id_inspeccion FK
+        string condicion
+        string resultado
+    }
+    REPORTE_ILEGAL {
+        int id_reporte PK
+        int id_zona FK
+        int anio
+        int mes
+        int total_reportes
+    }
+    AUDITORIA {
+        int id_auditoria PK
+        string tabla_afectada
+        string operacion
+        int id_registro
+        string usuario_bd
+        datetime fecha_evento
+        string detalle
+    }
