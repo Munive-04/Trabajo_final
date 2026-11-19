@@ -35,9 +35,9 @@ Base de datos relacional que organiza la flota, las rutas, los turnos, los parad
 ├── generador/
 │   └── 14_generador_datos.py                     Genera el DML (semilla 2026, reproducible)
 ├── docs/
-│   ├── memoria_tecnica.pdf                       Memoria técnica (6 apartados)  [exportar]
+│   ├── memoria_tecnica.pdf                       Memoria técnica (6 apartados)
 │   ├── diccionario_datos.md                      Diccionario de datos
-│   ├── er_diagrama.mmd / er.png                  Diagrama entidad-relación      [exportar er.png]
+│   ├── er_diagrama.mmd / er.png                  Diagrama entidad-relación
 │   ├── 12a_inventario_documentacion.csv          Inventario documental
 │   ├── 12b_migracion_solo_comentarios_PENDIENTE.md
 │   ├── 12c_mejoras_diseno_no_aplicadas.md        Mejoras M1 a M10 detectadas y no aplicadas
@@ -94,11 +94,11 @@ La opción `--force` hace que continúe después de cada error esperado. Antes d
 
 ## Estado de la verificación
 
-Los resultados esperados se calcularon en SQLite. El equipo ejecutó todos los scripts en MariaDB (XAMPP) el 13-nov-2026 y reportó resultados coincidentes: estado **PROBADO EN SGBD (reportado)**. Las capturas se guardan en `evidencias/`.
+Los resultados esperados se calcularon en SQLite. El autor ejecutó todos los scripts en MariaDB (XAMPP) el 13-nov-2026 y reportó resultados coincidentes: estado **PROBADO EN SGBD (reportado)**. Las capturas se guardan en `evidencias/`.
 
 ## Modelo
 
-12 tablas normalizadas hasta Boyce-Codd, con COMMENT nativo en todas las tablas y columnas: empresa_operadora, vehiculo, zona, paradero, ruta, ruta_paradero (tabla puente N:M), asignacion, responsable, inspeccion, inspeccion_detalle, reporte_ilegal y auditoria. Volumen: asignacion e inspeccion_detalle con 10.000 filas cada una (datos sintéticos, solo uso académico). Ver docs/diccionario_datos.md.
+12 tablas normalizadas hasta Boyce-Codd, con `COMMENT` nativo en todas las tablas y columnas: `empresa_operadora`, `vehiculo`, `zona`, `paradero`, `ruta`, `ruta_paradero` (tabla puente N:M), `asignacion`, `responsable`, `inspeccion`, `inspeccion_detalle`, `reporte_ilegal` y `auditoria`. Volumen: `asignacion` e `inspeccion_detalle` con 10.000 filas cada una (datos **sintéticos, solo uso académico**). Ver `docs/diccionario_datos.md` y el diagrama en `docs/er.png`.
 
 ## Decisiones de diseño
 
@@ -120,8 +120,8 @@ Los turnos no cruzan la medianoche; los datos son ficticios y los nombres de sec
 
 | Fase | Entregable | Estado |
 |---|---|---|
-| 1. Requisitos y ER | Documentos y diagrama | Hecha (falta exportar `er.png`) |
-| 2. Modelo lógico y normalización | Modelo, diccionario y justificación | Hecha (falta captura del Diseñador de phpMyAdmin) |
+| 1. Requisitos y ER | Documentos y diagrama (`docs/er.png`) | Hecha |
+| 2. Modelo lógico y normalización | Modelo, diccionario y justificación | Hecha |
 | 3. Implementación DDL/DML | Scripts 12 a 15 y 03 | Hecha, probada (reportado) |
-| 4. Lógica avanzada y optimización | Scripts 04 a 07 y 16 | Hecha, probada (reportado); faltan los EXPLAIN observados |
-| 5. Memoria técnica, Git y sustentación | `docs/memoria_tecnica.pdf` | En curso: completar corchetes y exportar el PDF |
+| 4. Lógica avanzada y optimización | Scripts 04 a 07 y 16 | Hecha, probada (reportado); falta incorporar los EXPLAIN observados |
+| 5. Memoria técnica, Git y sustentación | `docs/memoria_tecnica.pdf` | Memoria exportada; falta agregar las capturas en `evidencias/` |
